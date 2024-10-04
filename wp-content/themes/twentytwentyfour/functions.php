@@ -215,3 +215,16 @@ function enqueue_custom_footer_styles()
 	wp_enqueue_style('footer-css', get_template_directory_uri() . '/assets/css/footer.css');
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_footer_styles');
+
+// Đăng ký Bootstrap CSS và JS
+function enqueue_bootstrap_assets()
+{
+	wp_enqueue_style('bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), null, true);
+	wp_enqueue_script('popper-js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array(), null, true);
+	wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', array('jquery', 'popper-js'), null, true);
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_bootstrap_assets');
+
+
